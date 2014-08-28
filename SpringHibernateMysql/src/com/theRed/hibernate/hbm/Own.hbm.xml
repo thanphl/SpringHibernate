@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 27, 2014 10:48:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.theRed.hibernate.persistence.Own" table="OWN">
+        <id name="own_id" type="int">
+            <column name="OWN_ID" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="user" class="com.theRed.hibernate.persistence.User" fetch="join">
+            <column name="U_ID" />
+        </many-to-one>
+        <many-to-one name="mobile" class="com.theRed.hibernate.persistence.Mobile" fetch="join">
+            <column name="M_ID" />
+        </many-to-one>
+        <property name="timestamp" type="java.sql.Timestamp">
+            <column name="TIMESTAMP" />
+        </property>
+    </class>
+</hibernate-mapping>

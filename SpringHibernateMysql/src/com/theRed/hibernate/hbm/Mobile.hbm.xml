@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 27, 2014 10:48:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.theRed.hibernate.persistence.Mobile" table="MOBILE">
+        <id name="m_id" type="int">
+            <column name="M_ID" />
+            <generator class="increment" />
+        </id>
+        <property name="manufacture" type="java.lang.String">
+            <column name="MANUFACTURE" />
+        </property>
+        <property name="model" type="java.lang.String">
+            <column name="MODEL" />
+        </property>
+        <set name="users" table="USER" inverse="false" lazy="true">
+            <key>
+                <column name="U_ID" />
+            </key>
+            <one-to-many class="com.theRed.hibernate.persistence.User" />
+        </set>
+    </class>
+</hibernate-mapping>
